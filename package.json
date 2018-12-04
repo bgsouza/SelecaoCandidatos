@@ -1,0 +1,21 @@
+{
+  "name": "SelecaoVagas",
+  "version": "1.0.0",
+  "description": "Api para Vagas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony-async-await app.js",
+    "test": "./node_modules/mocha/bin/mocha ./test/* --harmony-async-await"
+  },
+  "dependencies": {
+    "morgan": "^1.8.0",
+    "express": "^4.13.3",
+    "body-parser": "^1.14.1",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0 ",
+    "should": "^5.2.0"
+  }
+}
