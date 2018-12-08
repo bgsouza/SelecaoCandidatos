@@ -1,10 +1,10 @@
 class Vaga {
 
   constructor() {
-    this.empresa = "";
-    this.titulo = "";
-    this.descricao = "";
-    this.localizacao = "";
+    this.empresa = null;
+    this.titulo = null;
+    this.descricao = null;
+    this.localizacao = null;
     this.nivel = 0;
   }
 }
