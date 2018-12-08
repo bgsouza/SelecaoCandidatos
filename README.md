@@ -18,12 +18,21 @@ Acessar a api: http://127.0.0.1:5000
 # Endpoints
  - GET: /
  - POST: /v1/vagas
-   - body:
+   - body: 
+      ``
+      {
+        "empresa": "Teste",
+        "titulo": "Vaga teste",
+        "descricao": "Criar os mais diferentes tipos de teste",
+        "localizacao": "A",
+        "nivel": 3
+      }
+    ``
  - POST: /v1/...
  - GET: /v1/...
 
 ## Notas
- - Utiliza a implementação [https://github.com/andrewhayward/dijkstra/blob/master/graph.js](Dijkstra's) para resolução de rotas
+ - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
 
 ## Uso
 

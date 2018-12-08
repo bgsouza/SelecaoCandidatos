@@ -1,10 +1,11 @@
 const fs = require('fs')
 const Vaga = require('../model/Vaga');
+const JsonDB = require('../adpters/jsonBD');
 
 class VagasService {
 
     constructor() {
-        this.vagas = [];
+        this.jsonDB = new JsonDB('vagas');
     }
 
     validateArgs(vaga) {
@@ -22,6 +23,10 @@ class VagasService {
         return r;
     }
 
+    list() {
+        return this.vagas;
+    }
+
     save(action, data) {
         let v = this.validateArgs(data);
         let r = {status: true, msg: ''}
@@ -30,24 +35,33 @@ class VagasService {
             r.msg = v.err.join('\n');
             return r;
         }
-
+        
+        let vaga = new Vaga(data.empresa, data.titulo, data.descricao, data.localizacao, data.nivel);
         switch(action) {
             case "create":
-                this.vagas.push(data)
-                r.msg = '[VAGA] cadastrado com sucesso'
+                let id = this.jsonDB.lastId() + 1;
+                vaga.id = id;
+                try {
+                    this.jsonDB.append(vaga);
+                    r.msg = '[VAGA] cadastrado com sucesso'
+                } catch(e) {
+                    r.status = false;
+                    r.msg = e.toString();
+                }
                 break;
             
             case "update":
                 break;
         }
 
-        console.log('[DEBUG][VAGAS]', this.vagas)
         return r;
     }
 
     delete() {}
 
-    response() {}
+    lastID() {
+        return this.vagas.length > 0 ? this.vagas[this.vagas.length-1].id : -1;
+    }
 }
 
 module.exports = VagasService;
