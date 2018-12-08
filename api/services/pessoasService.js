@@ -8,16 +8,16 @@ class PessoasService {
         this.jsonDB = new JsonDB('pessoas');
     }
 
-    validateArgs(vaga) {
+    validateArgs(pessoa) {
         let r = {status: true, err:[]}
-        if(vaga.nome == undefined || null) { r.err.push("Nome não informado")}
-        if(vaga.profissao == undefined || null) { r.err.push("Profissão não informada")}
-        if(vaga.localizacao == undefined || null) {r.err.push("Localização não informada")}
-        if(vaga.nivel == undefined || null) {r.err.push("Nível não informado")};
+        if(pessoa.nome == undefined || null) { r.err.push("Nome não informado")}
+        if(pessoa.profissao == undefined || null) { r.err.push("Profissão não informada")}
+        if(pessoa.localizacao == undefined || null) {r.err.push("Localização não informada")}
+        if(pessoa.nivel == undefined || null) {r.err.push("Nível não informado")};
 
         if(r.err.length > 0) {
             r.status = false;
-            r.err = r.err.map(erro => { return `[VAGA]: ${erro}`; })
+            r.err = r.err.map(erro => { return `[PESSOA]: ${erro}`; })
         }
         return r;
     }

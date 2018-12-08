@@ -38,7 +38,14 @@ Acessar a api: http://127.0.0.1:5000
         "nivel": 2
       }
       `` 
- - GET: /v1/...
+ - GET: /v1/candidaturas
+   - body:
+      ``
+      {
+        "id_vaga": 1,
+        "id_pessoa": 2
+      }
+      ``
 
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas

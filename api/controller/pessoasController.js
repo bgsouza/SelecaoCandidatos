@@ -3,17 +3,14 @@ const pessoasService = require('../services/pessoasService');
 class PessoasController {
 
     constructor() {
-      this.pessoasService = new pessoasService();
+      this._pessoasService = new pessoasService();
     }
 
     list() {}
 
-    create(vaga) {
-        return this.pessoasService.save('create', vaga);
+    create(pessoa) {
+        return this._pessoasService.save('create', pessoa);
     }
-
-    update() {}
-    delete() {}
 }
 
 module.exports = PessoasController

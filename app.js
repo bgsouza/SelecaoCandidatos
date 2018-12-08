@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-// app.use('/candidaturas', candidaturasRouter);
+app.use('/v1/candidaturas', candidaturasRouter);
 app.use('/v1/pessoas', pessoasRouter);
 app.use('/v1/vagas', vagasRouter);
 
