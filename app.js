@@ -25,17 +25,6 @@ app.use('/', indexRouter);
 // app.use('/pessoas', pessoasRouter);
 // app.use('/vagas', vagasRouter);
 
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  res.status(err.status || 500);
-  res.render('error');
-});
-
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', true);
