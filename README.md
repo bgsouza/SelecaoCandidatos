@@ -1,5 +1,5 @@
 # Teste - Selecão de Vagas
-Api para cadastro de vagas, candidatos e busca ordebada pelo melhor score
+Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
 
 ## Dependências
  - NodeJS >= 8.0.0 
@@ -38,7 +38,7 @@ Acessar a api: http://127.0.0.1:5000
         "nivel": 2
       }
       `` 
- - GET: /v1/candidaturas
+ - POST: /v1/candidaturas
    - body:
       ``
       {
