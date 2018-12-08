@@ -28,7 +28,16 @@ Acessar a api: http://127.0.0.1:5000
         "nivel": 3
       }
     ``
- - POST: /v1/...
+ - POST: /v1/pessoas
+   - body:
+      ``
+      {
+        "nome": "John Doe",
+        "profissao": "Engenheiro de Software",
+        "localizacao": "C",
+        "nivel": 2
+      }
+      `` 
  - GET: /v1/...
 
 ## Notas

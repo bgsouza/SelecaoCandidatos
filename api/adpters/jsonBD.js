@@ -16,7 +16,6 @@ class JsonBD {
 
     lastId() {
         let json = this.get();
-        console.log('[lastId]', json);
         return json !== undefined && json.length > 0 ? json[json.length-1].id : 0; 
     }
 
@@ -34,7 +33,7 @@ class JsonBD {
 
     write(data) {
         fs.writeFile(`${this.path}${this.file}.json`, JSON.stringify(data), (err) => {
-            console.log(`[JsonDB][write] ${err}`)
+            if(err) { console.log(`[JsonDB][write] ${err}`) }
         }); 
     }
 }

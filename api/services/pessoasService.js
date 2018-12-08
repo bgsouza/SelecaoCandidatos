@@ -1,18 +1,17 @@
 const fs = require('fs')
-const Vaga = require('../model/Vaga');
+const Pessoa = require('../model/Pessoa');
 const JsonDB = require('../adpters/jsonBD');
 
-class VagasService {
+class PessoasService {
 
     constructor() {
-        this.jsonDB = new JsonDB('vagas');
+        this.jsonDB = new JsonDB('pessoas');
     }
 
     validateArgs(vaga) {
         let r = {status: true, err:[]}
-        if(vaga.empresa == undefined || null) { r.err.push("Empresa não informada")}
-        if(vaga.titulo == undefined || null) { r.err.push("Titulo não informado")}
-        if(vaga.descricao == undefined || null) {r.err.push("Descricão não informada")}
+        if(vaga.nome == undefined || null) { r.err.push("Nome não informado")}
+        if(vaga.profissao == undefined || null) { r.err.push("Profissão não informada")}
         if(vaga.localizacao == undefined || null) {r.err.push("Localização não informada")}
         if(vaga.nivel == undefined || null) {r.err.push("Nível não informado")};
 
@@ -36,14 +35,14 @@ class VagasService {
             return r;
         }
         
-        let vaga = new Vaga(data.empresa, data.titulo, data.descricao, data.localizacao, data.nivel);
+        let pessoa = new Pessoa(data.nome, data.profissao, data.localizacao, data.nivel);
         switch(action) {
             case "create":
                 let id = this.jsonDB.lastId() + 1;
-                vaga.id = id;
+                pessoa.id = id;
                 try {
-                    this.jsonDB.append(vaga);
-                    r.msg = '[VAGA] cadastrado com sucesso'
+                    this.jsonDB.append(pessoa);
+                    r.msg = '[PESSOA] cadastrado com sucesso'
                 } catch(e) {
                     r.status = false;
                     r.msg = e.toString();
@@ -60,4 +59,4 @@ class VagasService {
     delete() {}
 }
 
-module.exports = VagasService;
+module.exports = PessoasService;

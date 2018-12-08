@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 // app.use('/candidaturas', candidaturasRouter);
-// app.use('/pessoas', pessoasRouter);
+app.use('/v1/pessoas', pessoasRouter);
 app.use('/v1/vagas', vagasRouter);
 
 app.use(function (req, res, next) {
