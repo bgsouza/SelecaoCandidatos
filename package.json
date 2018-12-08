@@ -8,9 +8,12 @@
     "test": "./node_modules/mocha/bin/mocha ./test/* --harmony-async-await"
   },
   "dependencies": {
-    "morgan": "^1.8.0",
-    "express": "^4.13.3",
-    "body-parser": "^1.14.1",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "request": "^2.79.0",
     "request-promise-native": "^1.0.3"
   },

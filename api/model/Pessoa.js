@@ -1,8 +1,11 @@
-function Pessoa() {
-    this.nome = "";
-    this.profissao = "";
-    this.localizacao = "";
-    this.nivel = 0;
+class Pessoa {
+
+    constructor() {
+        this.nome = "";
+        this.profissao = "";
+        this.localizacao = "";
+        this.nivel = 0;
+    }
   }
 
-  module.exports = Pessoa();
+  module.exports = Pessoa;
