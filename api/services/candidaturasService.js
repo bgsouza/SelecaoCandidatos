@@ -34,14 +34,19 @@ class CandidaturasService {
         let candidatura = new Candidatura(data.id_vaga, data.id_pessoa);
         switch(action) {
             case "create":
-                let id = this.jsonDB.lastId() + 1;
-                candidatura.id = id;
-                try {
-                    this.jsonDB.append(candidatura);
-                    r.msg = '[CANDIDATURA] cadastrado com sucesso'
-                } catch(e) {
+                if(this.checkExists(candidatura)) {
                     r.status = false;
-                    r.msg = e.toString();
+                    r.msg = "[CANDIDATURA] Candidato já aplicou á essa vaga"
+                } else {
+                    let id = this.jsonDB.lastId() + 1;
+                    candidatura.id = id;
+                    try {
+                        this.jsonDB.append(candidatura);
+                        r.msg = '[CANDIDATURA] cadastrado com sucesso'
+                    } catch(e) {
+                        r.status = false;
+                        r.msg = e.toString();
+                    }
                 }
                 break;
             
@@ -50,6 +55,12 @@ class CandidaturasService {
         }
 
         return r;
+    }
+
+    checkExists(candidatura) {
+        const candidatos = this.jsonDB.get();
+        let candidato = candidatos.find(data => { return data.id_vaga == candidatura.id_vaga && data.id_pessoa == candidatura.id_pessoa})
+        return candidato !== undefined
     }
 
     delete() {}
