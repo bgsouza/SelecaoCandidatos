@@ -7,7 +7,13 @@ class JsonBD {
     }
 
     get() {
-        return JSON.parse(fs.readFileSync(`${this.path}${this.file}.json`, 'utf8'));
+        let json = [];
+        try {
+            json = JSON.parse(fs.readFileSync(`${this.path}${this.file}.json`, 'utf8'));
+        } catch (err) {
+            console.log(`[JsonDB][get] ${err}`)
+        }
+        return json;
     }
 
     find() {
@@ -24,7 +30,7 @@ class JsonBD {
             if (err){
                 console.log(`[JsonDB][append] ${err}`)
             } else {
-                let json = JSON.parse(d);
+                let json = d == "" || null ? [] : JSON.parse(d);
                 json.push(data);
                 this.write(json);
             }

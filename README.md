@@ -47,7 +47,8 @@ Acessar a api: http://127.0.0.1:5000
         "id_pessoa": 2
       }
       ``
-  - POST: /v1/ranking
+  - POST: /v1/vagas/:id/candidaturas/ranking
+   - body: 
 
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
