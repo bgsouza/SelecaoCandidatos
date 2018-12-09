@@ -18,8 +18,8 @@ Acessar a api: http://127.0.0.1:5000
 
 # Endpoints
  - GET: /
- - POST: /v1/vagas
-   - body: 
+  - POST: /v1/vagas
+    - body: 
       ``
       {
         "empresa": "Teste",
@@ -28,9 +28,11 @@ Acessar a api: http://127.0.0.1:5000
         "localizacao": "A",
         "nivel": 3
       }
-    ``
- - POST: /v1/pessoas
-   - body:
+     ``
+  - POST: /v1/vagas/:id/candidaturas/ranking
+    - body: (nada)
+  - POST: /v1/pessoas
+    - body:
       ``
       {
         "nome": "John Doe",
@@ -39,16 +41,14 @@ Acessar a api: http://127.0.0.1:5000
         "nivel": 2
       }
       `` 
- - POST: /v1/candidaturas
-   - body:
+  - POST: /v1/candidaturas
+    - body:
       ``
       {
         "id_vaga": 1,
         "id_pessoa": 2
       }
       ``
-  - POST: /v1/vagas/:id/candidaturas/ranking
-   - body: 
 
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas

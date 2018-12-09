@@ -8,6 +8,7 @@
     "test": "./node_modules/mocha/bin/mocha ./test/*"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
