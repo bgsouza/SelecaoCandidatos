@@ -47,12 +47,14 @@ Acessar a api: http://127.0.0.1:5000
         "id_pessoa": 2
       }
       ``
+  - POST: /v1/ranking
 
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
 
 ## TODO
  - Uso de injeção de dependência para usar o JsonDB
+ - Melhoria na gestão de rotas pois tem muitos arquivos
  - Inclusão de Logs
  - Inclusão de HealthCheck
  - Cobertura de testes

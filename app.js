@@ -8,11 +8,7 @@ var app = express()
 var morgan = require('morgan')
 
 //Routes
-const indexRouter = require('./api/routes/index');
-const candidaturasRouter = require('./api/routes/candidaturas');
-const pessoasRouter = require('./api/routes/pessoas');
-const vagasRouter = require('./api/routes/vagas');
-
+const apiRouter = require('./api/routes/api');
 
 app.set('port', (process.env.PORT || 5000))
 //app.set('view engine', null);
@@ -20,10 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
-app.use('/v1/candidaturas', candidaturasRouter);
-app.use('/v1/pessoas', pessoasRouter);
-app.use('/v1/vagas', vagasRouter);
+app.use('/', apiRouter);
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
