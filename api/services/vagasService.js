@@ -57,6 +57,15 @@ class VagasService {
         return r;
     }
 
+    ranking(id, r) {
+        //Obtem vaga
+        const dadosVaga = this.jsonDB.find('vagas', {id: id});
+        //Obtem candidatos
+        const dadosCandidatura = this.jsonDB.find('candidaturas', {empresa: id});
+        //Processa lista
+        return r;
+    }
+
     delete() {}
 }
 

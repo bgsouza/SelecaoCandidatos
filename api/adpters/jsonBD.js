@@ -1,4 +1,5 @@
 const fs = require('fs')
+const _ = require('underscore');
 class JsonBD {
 
     constructor(file) {
@@ -6,18 +7,25 @@ class JsonBD {
         this.path = __dirname.replace('api/adpters','') + 'data/' // mover para .env
     }
 
-    get() {
+    getFile() {
+        return this.file;
+    }
+
+    get(file) {
         let json = [];
         try {
-            json = JSON.parse(fs.readFileSync(`${this.path}${this.file}.json`, 'utf8'));
+            json = JSON.parse(fs.readFileSync(`${this.path}${file != undefined ? file : this.file}.json`, 'utf8'));
         } catch (err) {
             console.log(`[JsonDB][get] ${err}`)
         }
         return json;
     }
 
-    find() {
-
+    find(model, query) {
+        let jsonModel = this.get(model);
+        let jsonFiltered = _.where(jsonModel, query);
+        console.log(`json filtered: ${model}`, jsonFiltered);
+        return jsonFiltered;
     }
 
     lastId() {

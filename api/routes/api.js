@@ -25,7 +25,8 @@ router.post('/v1/vagas', (req, res) => {
 router.get('/v1/vagas/:id/candidaturas/ranking', (req, res) => {
     let id = req.params.id;
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json({'candidatura':id});
+    const response = _vagasControler.ranking(id);
+    res.status(200).json(response);
 });
 
 router.post('/v1/pessoas', (req, res) => {
