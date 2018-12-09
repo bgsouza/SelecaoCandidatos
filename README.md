@@ -10,8 +10,9 @@ Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
   - $ cd <raiz>
   - $ npm i
   - $ npm run start
- - Docker:
-  - todo
+ - Docker (TODO):
+  - build: $ docker build -t bgsouza/apiselecao .
+  - run: $ docker run --name apiselecao -itd -p 5000:5000 bgsouza/apiselecao
 
 Acessar a api: http://127.0.0.1:5000
 
@@ -50,6 +51,11 @@ Acessar a api: http://127.0.0.1:5000
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
 
-## Uso
+## TODO
+ - Uso de injeção de dependência para usar o JsonDB
+ - Inclusão de Logs
+ - Inclusão de HealthCheck
+ - Cobertura de testes
+ - Docker
 
 ## Testes
