@@ -66,6 +66,13 @@ class VagasService {
     ranking(id, r) {
         // Obtem vaga
         const dadosVaga = this.jsonDB.find('vagas', {id: id});
+
+        if(dadosVaga.length == 0) {
+            r.status = false;
+            r.msg = '[VAGAS] Vaga não existe'
+            return r;
+        }
+        
         // Obtem candidatos
         const dadosCandidatura = this.jsonDB.find('candidaturas', {id_vaga: id});
         

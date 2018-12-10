@@ -5,7 +5,7 @@ class IndexController {
     }
 
     getHome() {
-        return { 'title' : 'Selecao API'}
+        return { status: true, 'title' : 'Selecao API'}
     }
 }
 

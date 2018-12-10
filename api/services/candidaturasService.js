@@ -38,14 +38,27 @@ class CandidaturasService {
                     r.status = false;
                     r.msg = "[CANDIDATURA] Candidato já aplicou á essa vaga"
                 } else {
-                    let id = this.jsonDB.lastId() + 1;
-                    candidatura.id = id;
-                    try {
-                        this.jsonDB.append(candidatura);
-                        r.msg = '[CANDIDATURA] cadastrado com sucesso'
-                    } catch(e) {
+                    let err = [];
+                    if(!this.checkVagaExists(data.id_vaga,)) {
+                        err.push("[CANDIDATURA] Vagas não existe");
+                    }
+                    if(!this.checkPessoaExists(data.id_pessoa)) {
+                        err.push( "[CANDIDATURA] Candidato não existe");
+                    }
+                    
+                    if(err.length == 0) {
+                        let id = this.jsonDB.lastId() + 1;
+                        candidatura.id = id;
+                        try {
+                            this.jsonDB.append(candidatura);
+                            r.msg = '[CANDIDATURA] cadastrado com sucesso'
+                        } catch(e) {
+                            r.status = false;
+                            r.msg = e.toString();
+                        }
+                    } else {
                         r.status = false;
-                        r.msg = e.toString();
+                        r.msg = err.join('\n');
                     }
                 }
                 break;
@@ -55,6 +68,16 @@ class CandidaturasService {
         }
 
         return r;
+    }
+
+    checkVagaExists(id) {
+        let vaga = this.jsonDB.find('vagas', {id: id})
+        return vaga.length > 0;
+    }
+
+    checkPessoaExists(id) {
+        let pessoa = this.jsonDB.find('pessoas', {id: id})
+        return pessoa.length > 0;
     }
 
     checkExists(candidatura) {

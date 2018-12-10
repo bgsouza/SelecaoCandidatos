@@ -14,7 +14,10 @@ Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
   - build: $ docker build -t bgsouza/apiselecao .
   - run: $ docker run --name apiselecao -itd -p 5000:5000 bgsouza/apiselecao
 
-Acessar a api: http://127.0.0.1:5000
+Acessar a api: http://127.0.0.1:
+
+## Testes
+  - $ npm run test
 
 ## Endpoints
  - GET: /
@@ -58,7 +61,5 @@ Disponivel no POSTMAN: https://www.getpostman.com/collections/e1461c78e0e35f05c4
  - [TODO] Uso de injeção de dependência para usar o JsonDB
  - [OK] Melhoria na gestão de rotas (pois tem muitos arquivos)
  - [TODO] Inclusão de Logs
- - [TODO] Cobertura de testes
+ - [OK] Cobertura de testes (90%): falta score e graph
  - [OK] Docker
-
-## Testes
