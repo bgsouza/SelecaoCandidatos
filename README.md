@@ -53,7 +53,7 @@ Acessar a api: http://127.0.0.1:
       }
       ``
       
-*Disponivel no POSTMAN: https://www.getpostman.com/collections/e1461c78e0e35f05c408
+**Disponivel no POSTMAN**: https://www.getpostman.com/collections/e1461c78e0e35f05c408
 
 ## Notas
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
