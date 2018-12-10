@@ -148,3 +148,5 @@ var Graph = (function (undefined) {
 	return Graph;
 
 })();
+
+module.exports = Graph

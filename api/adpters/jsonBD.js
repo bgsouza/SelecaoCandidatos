@@ -24,7 +24,12 @@ class JsonBD {
     find(model, query) {
         let jsonModel = this.get(model);
         let jsonFiltered = _.where(jsonModel, query);
-        console.log(`json filtered: ${model}`, jsonFiltered);
+        return jsonFiltered;
+    }
+
+    findBy(model, field, arr) {
+        let jsonModel = this.get(model);
+        let jsonFiltered = jsonModel.filter((i) => { return arr.includes(i[`${field}`])})
         return jsonFiltered;
     }
 

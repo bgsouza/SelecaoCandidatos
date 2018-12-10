@@ -1,11 +1,17 @@
 const fs = require('fs')
 const Vaga = require('../model/Vaga');
 const JsonDB = require('../adpters/jsonBD');
+const routeService = require('./routeService');
+const scoreService = require('./scoreService');
+const resultadoBusca = require('../model/dto/ResultadoBusca');
+const _ = require('underscore');
 
 class VagasService {
 
     constructor() {
         this.jsonDB = new JsonDB('vagas');
+        this._routeService = new routeService();
+        this._scoreService = new scoreService();
     }
 
     validateArgs(vaga) {
@@ -58,12 +64,29 @@ class VagasService {
     }
 
     ranking(id, r) {
-        //Obtem vaga
+        // Obtem vaga
         const dadosVaga = this.jsonDB.find('vagas', {id: id});
-        //Obtem candidatos
-        const dadosCandidatura = this.jsonDB.find('candidaturas', {empresa: id});
-        //Processa lista
-        return r;
+        // Obtem candidatos
+        const dadosCandidatura = this.jsonDB.find('candidaturas', {id_vaga: id});
+        
+        // Obtem dados dos candidatos
+        const dadosPessoas = this.jsonDB.findBy('pessoas', 'id', dadosCandidatura.map((i, acc) => { return i.id_pessoa}));
+
+        if(dadosPessoas.length == 0) {
+            r.status = false;
+            r.msg = "[VAGAS] Não há candidaturas"
+            return r;
+        }
+        //Mapeia Rotas
+        const candidatosScore = this._routeService.mapRoutes(dadosVaga[0].localizacao, dadosPessoas)
+        let candidatos = []
+        candidatosScore.forEach(c => {
+            let score = this._scoreService.calc(dadosVaga[0].nivel, c.nivel, c.d);
+            candidatos.push( new resultadoBusca(c.nome, c.profissao, c.localizacao, c.nivel, score) )
+        });
+        
+        //Sort
+        return _.sortBy(candidatos,'score');
     }
 
     delete() {}
