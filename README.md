@@ -14,7 +14,7 @@ Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
   - build: $ docker build -t bgsouza/apiselecao .
   - run: $ docker run --name apiselecao -itd -p 5000:5000 bgsouza/apiselecao
 
-Acessar a api: http://127.0.0.1:
+**Acessar a api:** http://127.0.0.1:5000
 
 ## Testes
   - $ npm run test
