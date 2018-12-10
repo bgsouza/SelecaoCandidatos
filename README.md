@@ -10,7 +10,7 @@ Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
   - $ cd <raiz>
   - $ npm i
   - $ npm run start
- - Docker (TODO):
+ - Docker:
   - build: $ docker build -t bgsouza/apiselecao .
   - run: $ docker run --name apiselecao -itd -p 5000:5000 bgsouza/apiselecao
 
@@ -57,8 +57,8 @@ Disponivel no POSTMAN: https://www.getpostman.com/collections/e1461c78e0e35f05c4
 ## TODO
  - [TODO] Uso de injeção de dependência para usar o JsonDB
  - [OK] Melhoria na gestão de rotas pois tem muitos arquivos
- - Inclusão de Logs
+ - [TODO] Inclusão de Logs
  - [TODO] Cobertura de testes
- - Docker
+ - [OK] Docker
 
 ## Testes
