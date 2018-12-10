@@ -16,7 +16,7 @@ Api para cadastro de vagas, candidatos e busca ordenada pelo melhor score
 
 Acessar a api: http://127.0.0.1:5000
 
-# Endpoints
+## Endpoints
  - GET: /
   - POST: /v1/vagas
     - body: 
@@ -56,7 +56,7 @@ Disponivel no POSTMAN: https://www.getpostman.com/collections/e1461c78e0e35f05c4
 
 ## TODO
  - [TODO] Uso de injeção de dependência para usar o JsonDB
- - [OK] Melhoria na gestão de rotas pois tem muitos arquivos
+ - [OK] Melhoria na gestão de rotas (pois tem muitos arquivos)
  - [TODO] Inclusão de Logs
  - [TODO] Cobertura de testes
  - [OK] Docker
