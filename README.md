@@ -54,11 +54,10 @@ Acessar a api: http://127.0.0.1:5000
  - Utiliza a implementação [Dijkstra's](https://github.com/andrewhayward/dijkstra/blob/master/graph.js) para resolução de rotas
 
 ## TODO
- - Uso de injeção de dependência para usar o JsonDB
- - Melhoria na gestão de rotas pois tem muitos arquivos
+ - [TODO] Uso de injeção de dependência para usar o JsonDB
+ - [OK] Melhoria na gestão de rotas pois tem muitos arquivos
  - Inclusão de Logs
- - Inclusão de HealthCheck
- - Cobertura de testes
+ - [TODO] Cobertura de testes
  - Docker
 
 ## Testes
