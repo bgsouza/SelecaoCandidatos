@@ -11,7 +11,21 @@ class RouteService {
 
     trace(ori, dest) {
         let route = this.graph.findShortestPath(ori, dest);
-        return (route == undefined) ? -1 : route.cost 
+        return (route == undefined) ? 0 : this.dist(route.cost)
+    }
+
+    dist(d) {
+        if(d <= 5) {
+            return 100
+        } else if(d > 5 && d <= 10) {
+            return 75
+        } else if(d > 10 && d <= 15) {
+            return 50
+        } else if(d > 15 && d <= 20) {
+            return 25
+        } else {
+            return 0
+        }
     }
 
     mapRoutes(ori, data) {
